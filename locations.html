@@ -1,0 +1,20 @@
+<html>
+<head><title>Locations</title></head>
+<body>
+<h1>Our Locations</h1>
+<ul id="locations"></ul>
+
+<script>
+fetch('https://jsonplaceholder.typicode.com/users')
+.then(res => res.json())
+.then(data => {
+  const list = document.getElementById('locations');
+  data.slice(0,5).forEach(loc => {
+    const li = document.createElement('li');
+    li.textContent = loc.address.city;
+    list.appendChild(li);
+  });
+});
+</script>
+</body>
+</html>

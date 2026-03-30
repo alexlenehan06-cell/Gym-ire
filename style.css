@@ -1,0 +1,42 @@
+<html>
+<head><title>Locations</title></head>
+<body>
+<h1>Our Locations</h1>
+<ul id="locations"></ul>
+
+<script>
+fetch('https://jsonplaceholder.typicode.com/users')
+.then(res => res.json())
+.then(data => {
+  const list = document.getElementById('locations');
+  data.slice(0,5).forEach(loc => {
+    const li = document.createElement('li');
+    li.textContent = loc.address.city;
+    list.appendChild(li);
+  });
+});
+</script>
+</body>
+</html>
+
+<!-- CSS -->
+<style>
+body { font-family: Arial; margin:0; }
+header { display:flex; justify-content:space-between; background:#0a3d2e; color:white; padding:1rem; }
+nav a { color:white; margin:0 10px; text-decoration:none; }
+.hero { padding:50px; text-align:center; background:#27ae60; color:white; }
+.slider img { width:100%; }
+@media(max-width:768px){
+  header { flex-direction:column; }
+}
+</style>
+
+<!-- JS -->
+<script>
+let images = [
+  'https://source.unsplash.com/800x400/?fitness',
+  'https://source.unsplash.com/800x400/?workout',
+  'https://source.unsplash.com/800x400/?gym-interior'
+];
+let i = 0;
+</script>
